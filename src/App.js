@@ -130,6 +130,7 @@ class App extends Component {
 							<span>
 								{this.state.selectedRecord.office}
 							</span>
+							<a href={this.state.selectedRecord.link}>Website</a>
 						</div>
 					) : null
 				}
