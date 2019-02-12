@@ -8,13 +8,18 @@ class App extends Component {
 		type: null,
 		usState: null,
 		records: null,
+		selectedRecord: null
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if (this.state.type && this.state.usState && (this.state.type !== prevState.type || this.state.usState !== prevState.usState)) {
-			axios.get(`http://localhost:3000/${this.state.type}/${this.state.usState}`).then(res => {
-				this.setState({ records: res.data.results })
-			})
+		if (this.state.type !== prevState.type || this.state.usState !== prevState.usState) {
+			this.setState({ selectedRecord: null })
+
+			if (this.state.type && this.state.usState) {
+				axios.get(`http://localhost:3000/${this.state.type}/${this.state.usState}`).then(res => {
+					this.setState({ records: res.data.results })
+				})
+			}
 		}
 	}
 
@@ -100,7 +105,9 @@ class App extends Component {
 							this.state.records ? this.state.records.map((record, idx) => {
 								return (
 									<tr key={idx}>
-										<td>{record.name}</td>
+										<td>
+											<a onClick={ (e) => { this.setState({ selectedRecord: record }) } }>{record.name}</a>
+										</td>
 										<td>{record.party}</td>
 									</tr>
 								)
@@ -108,6 +115,24 @@ class App extends Component {
 						}
 					</tbody>
 				</table>
+				{
+					this.state.selectedRecord ? (
+						<div>
+							<b>District</b>
+							<span>
+								{this.state.selectedRecord.district}
+							</span>
+							<b>Phone</b>
+							<span>
+								{this.state.selectedRecord.phone}
+							</span>
+							<b>Office</b>
+							<span>
+								{this.state.selectedRecord.office}
+							</span>
+						</div>
+					) : null
+				}
 			</div>
         )
     }
