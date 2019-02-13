@@ -1,29 +1,44 @@
 @import "./shared.scss";
 
-.App {
-  text-align: center;
+$blue: #013364;
+$red: #d30b0d;
+$gray: #cbcaca;
+$white: #ffffff;
+
+h1 {
+  color: $white;
+  font-family: 'Rockwell';
 }
 
-.App-header {
-  background-color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+label {
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.republican {
+  background-color: $red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.democrat {
+  background-color: $blue;
+}
+
+table {
+  height:200px;
+  display:block;
+}
+
+.list > tbody > tr > td {
+  cursor: pointer;
+}
+
+.list > tbody > tr:hover {
+  background-color: $gray;
+}
+
+.gray {
+  background-color: $gray;
+}
+
+.uk-card {
+  border-radius: 5px;
 }
