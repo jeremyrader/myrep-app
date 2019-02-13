@@ -1,5 +1,6 @@
-**Usage**
-Start the node server at https://github.com/Growmies/find-rep-api first and then start this one up. When you get the prompt to run on a different port select Y
+##Usage##
+
+Start the node server at https://github.com/Growmies/find-rep-api first and then start this one up with `npm start`. When you get the prompt to run on a different port select Y
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
