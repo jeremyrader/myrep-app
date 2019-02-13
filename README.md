@@ -1,4 +1,4 @@
-##Usage##
+## Usage
 
 Start the node server at https://github.com/Growmies/find-rep-api first and then start this one up with `npm start`. When you get the prompt to run on a different port select Y
 
